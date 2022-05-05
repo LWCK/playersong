@@ -1,0 +1,44 @@
+.fullSide {
+  background-color: rgba(255, 255, 255, 0.912);
+  /* border-radius: 0px 200px 0px 200px; */
+}
+
+.leftSide {
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.785);
+  /* border-radius: 0px 0px 0px 200px; */
+  background-image: url('../src/img/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 75% 100%;
+}
+
+body {
+  background-image: url("../src/img/1117.jpg");
+  background-size: 100vh;
+  /* background-size: contain; */
+}
+
+a>span:hover {
+  cursor: pointer;
+  color: rgb(255, 136, 0);
+}
+
+ul>li {
+  text-shadow: 2px 2px 2px black;
+}
+
+.text-center>.btn {
+  background-color: rgb(255, 136, 0);
+  color: black;
+  border: solid black;
+}
+
+.text-center>.btn:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 136, 0);
+  border: solid black;
+}
+
+
+
