@@ -11,7 +11,8 @@ const App: React.FC<any> = () => {
       title: "I'm Just A Kid",
       artist: "Simple Plan",
       filename: "simple.mp3",
-      image: "simple.jpg"
+      image: "simple.jpg",
+      lyrics: "[ Verse 1 ]\nI woke up, it was seven, I waited \'til eleven\nJust to figure out that no one would call\nI think I\'ve got a lot of friends, but I don\'t hear from them\nWhat\'s another night all alone?\nWhen you\'re spending everyday on your own\nAnd here it goes\n\n[ Chorus ]\nI\'m just a kid and life is a nightmare\nI\'m just a kid, I know that it\'s not fair\nNobody cares, \'cause I\'m alone and the world is\nHaving more fun than me\nTonight\n\n[ Verse 2 ]\nAnd maybe when the night is dead, I\'ll crawl into my bed\nI\'m staring at these four walls again\nI\'ll try to think about the last time I had a good time\nEveryone\'s got somewhere to go\nAnd they\'re gonna leave me here on my own\nAnd here it goes\n\n[ Chorus ]\nI\'m just a kid and life is a nightmare\nI\'m just a kid, I know that it\'s not fair\nNobody cares, \'cause I\'m alone and the world is\nHaving more fun than me\n\n[ Post \- Chorus ]\nWhat the hell is wrong with me ? Don\'t fit in with anybody\nHow did this happen to me ?\n    Wide awake I\'m bored and I can\'t fall asleep\nAnd every night is the worst night ever\n\n[ Bridge ]\nI\'m just a kid, I\'m just a kid\nI\'m just a kid, I\'m just a kid, yeah, I\'m just a kid\nI\'m just a kid, I\'m just a kid\nAnd I\'m just a kid, I\'m just a kid, I\'m just a kid\n\n[ Chorus ]\nI\'m just a kid and life is a nightmare\nI\'m just a kid, I know that it\'s not fair\nNobody cares, \'cause I\'m alone and the world is\nNobody wants to be alone in the world\nI\'m just a kid and life is a nightmare\nI\'m just a kid, I know that it\'s not fair\nNobody cares, \'cause I\'m alone and the world is\nNobody wants to be alone in the world\nNobody cares, \'cause I\'m alone and the world is\nHaving more fun than me tonight\n\n[ Outro ]\nI\'m all alone tonight\nNobody cares tonight\n\'Cause I\'m just a kid tonight"
     }
     ,
     {
@@ -19,7 +20,8 @@ const App: React.FC<any> = () => {
       title: "Boulevard of Broken",
       artist: "Green Day",
       filename: "green.mp3",
-      image: "green.jpg"
+      image: "green.jpg",
+      lyrics: "[ Verse 1 ]\nI walk a lonely road\nThe only one that I have ever known\nDon\'t know where it goes\nBut it\'s home to me, and I walk alone\nI walk this empty street\nOn the Boulevard of Broken Dreams\nWhere the city sleeps\nAnd I\'m the only one, and I walk alone\nI walk alone, I walk alone\nI walk alone, I walk a-\n[ Chorus ]\nMy shadow\'s the only one that walks beside me\nMy shallow heart\'s the only thing that\'s beating\nSometimes I wish someone out there will find me\n\'Til then I walk alone\n\n[ Post-Chorus ]\nAh-ah, ah-ah, ah-ah, ah-ah\nAh-ah, ah-ah, ah-ah\n\n[ Verse 2 ]\nI\'m walking down the line\nThat divides me somewhere in my mind\nOn the borderline\nOf the edge and where I walk alone\nRead between the lines\nWhat\'s fucked up, and everything\'s all right\nCheck my vital signs\nTo know I\'m still alive, and I walk alone\nI walk alone, I walk alone\nI walk alone, I walk a-\n\n[ Chorus ]\nMy shadow\'s the only one that walks beside me\nMy shallow heart\'s the only thing that\'s beating\nSometimes I wish someone out there will find me\n\'Til then I walk alone\n[ Post-Chorus ]\nAh-ah, ah-ah, ah-ah, ah-ah\nAh-ah, ah-ah\nI walk alone, I walk a-\n\n[ Guitar Solo ]\n\n[ Bridge ]\nI walk this empty street\nOn the Boulevard of Broken Dreams\nWhere the city sleeps\nAnd I\'m the only one, and I walk a-\n\n[ Chorus ]\nMy shadow\'s the only one that walks beside me\nMy shallow heart\'s the only thing that\'s beating\nSometimes I wish someone out there will find me\n\'Til then I walk alone\n\n[ Instrumental Outro ]"
     }
     ,
     {

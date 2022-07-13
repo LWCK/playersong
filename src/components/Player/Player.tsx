@@ -6,9 +6,7 @@ import ReactAudioPlayer from 'react-audio-player';
 
 
 const Player: React.FC<any> = ({ list, index }) => {
-
     const [indexPlayer, setIndexPlayer] = React.useState<any>(index)
-
     const autoNext = () => {
         if (indexPlayer === list.length - 1) {
             setIndexPlayer(0)
@@ -19,7 +17,6 @@ const Player: React.FC<any> = ({ list, index }) => {
             setIndexPlayer(indexPlayer + 1)
         }
     }
-
     const nextSong = () => {
         if (indexPlayer === list.length - 1) {
             setIndexPlayer(0)
@@ -27,7 +24,6 @@ const Player: React.FC<any> = ({ list, index }) => {
             setIndexPlayer(indexPlayer + 1)
         )
     }
-
     const prevSong = () => {
         if (indexPlayer != 0) {
             setIndexPlayer(indexPlayer - 1)
@@ -36,12 +32,21 @@ const Player: React.FC<any> = ({ list, index }) => {
             setIndexPlayer(list.length - 1)
         }
     }
-
     const [snow, setSnow] = React.useState<boolean>(false)
+    const [showLyrics, setShowLyrics] = React.useState<boolean>(false)
+    const [showBtnLyrics, setShowBtnLyrics] = React.useState<boolean>(true)
 
+    const showLyricsBool = () => {
+        setShowLyrics(true)
+        setShowBtnLyrics(false)
+    }
+
+    const unShowLyricsBool = () => {
+        setShowLyrics(false)
+        setShowBtnLyrics(true)
+    }
     return (
         <Container fluid className="Player" key={list[indexPlayer].id}>
-
             {snow && (
                 <div className="snowflakes" aria-hidden="true">
                     <div className="snowflake">
@@ -76,11 +81,26 @@ const Player: React.FC<any> = ({ list, index }) => {
                     </div>
                 </div>
             )}
-
-            <img src={"./src/img/" + list[indexPlayer].image} className="imgSongs mb-3" /> <br />
+            <img src={"./src/img/" + list[indexPlayer].image} className="img-songs mb-3" />
+            <br />
             <h4>{list[indexPlayer].title}</h4>
             <small>{list[indexPlayer].artist}</small> <br />
-            <ReactAudioPlayer className="playerAudio p-2"
+
+            {showBtnLyrics && (
+                <Button className='mt-3 lyrics-btn' onClick={() => showLyricsBool()}>Afficher les lyrics</Button>
+            )}
+
+            {showLyrics && (
+                <>
+                    <p className='new-line mt-3'>
+                        {list[indexPlayer].lyrics}
+                    </p>
+                    <Button className='mt-3 lyrics-btn' onClick={() => unShowLyricsBool()}>Cacher les lyrics</Button>
+                </>
+            )}
+
+            <br />
+            <ReactAudioPlayer className="player-audio p-2"
                 src={"./src/files/" + list[indexPlayer].filename}
                 autoPlay
                 controls
@@ -92,7 +112,7 @@ const Player: React.FC<any> = ({ list, index }) => {
                 <Button className='mx-3' onClick={() => prevSong()}><i className="fa-solid fa-angles-left"></i></Button>
                 <Button className='mx-3' onClick={() => nextSong()}><i className="fa-solid fa-angles-right"></i></Button>
             </div>
-        </Container>
+        </Container >
     )
 }
 
