@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Header />
+    <Header title="Player Song Project" />
     <App />
     <Footer />
   </React.StrictMode>

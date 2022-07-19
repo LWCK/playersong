@@ -11,6 +11,13 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 75% 100%;
+  min-height: calc(100vh - 20em);
+}
+
+@media only screen and (max-width: 750px) {
+.leftSide,.rightSide{
+  min-height: 85vh;
+}
 }
 
 body {

@@ -73,7 +73,7 @@ const Player: React.FC<any> = ({ list, index }) => {
                     </div>
                 </div>
             )}
-            <img src={list && list.records[indexPlayer].fields.images[0].url} className="img-songs mb-3" />
+            <img src={list && list.records[indexPlayer].fields.image[0].url} className="img-songs mb-3" />
             <br />
             <h4>{list && list.records[indexPlayer].fields.title}</h4>
             <small>{list && list.records[indexPlayer].fields.artist}</small> <br />
@@ -93,7 +93,7 @@ const Player: React.FC<any> = ({ list, index }) => {
             }
             <br />
             <ReactAudioPlayer className="player-audio p-2"
-                src={list && list.records[indexPlayer].fields.songfilename[0].url}
+                src={list && list.records[indexPlayer].fields.songfile[0].url}
                 autoPlay
                 controls
                 onPlay={() => setSnow(true)}
