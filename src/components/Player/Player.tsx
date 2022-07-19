@@ -1,14 +1,16 @@
-
 import React from 'react'
 import './Player.css'
 import { Button, Container } from 'react-bootstrap'
 import ReactAudioPlayer from 'react-audio-player';
 
-
 const Player: React.FC<any> = ({ list, index }) => {
+
     const [indexPlayer, setIndexPlayer] = React.useState<any>(index)
+    const [snow, setSnow] = React.useState<boolean>(false)
+    const [showBtnLyrics, setShowBtnLyrics] = React.useState<boolean>(true)
+
     const autoNext = () => {
-        if (indexPlayer === list.length - 1) {
+        if (indexPlayer === list.records.length - 1) {
             setIndexPlayer(0)
         } else {
             setIndexPlayer(indexPlayer + 1)
@@ -17,36 +19,26 @@ const Player: React.FC<any> = ({ list, index }) => {
             setIndexPlayer(indexPlayer + 1)
         }
     }
+
     const nextSong = () => {
-        if (indexPlayer === list.length - 1) {
+        if (indexPlayer === list.records.length - 1) {
             setIndexPlayer(0)
         } else (
             setIndexPlayer(indexPlayer + 1)
         )
     }
+
     const prevSong = () => {
         if (indexPlayer != 0) {
             setIndexPlayer(indexPlayer - 1)
         }
         else {
-            setIndexPlayer(list.length - 1)
+            setIndexPlayer(list.records.length - 1)
         }
     }
-    const [snow, setSnow] = React.useState<boolean>(false)
-    const [showLyrics, setShowLyrics] = React.useState<boolean>(false)
-    const [showBtnLyrics, setShowBtnLyrics] = React.useState<boolean>(true)
 
-    const showLyricsBool = () => {
-        setShowLyrics(true)
-        setShowBtnLyrics(false)
-    }
-
-    const unShowLyricsBool = () => {
-        setShowLyrics(false)
-        setShowBtnLyrics(true)
-    }
     return (
-        <Container fluid className="Player" key={list[indexPlayer].id}>
+        <Container fluid className="Player" key={list && list.records[indexPlayer].fields.id}>
             {snow && (
                 <div className="snowflakes" aria-hidden="true">
                     <div className="snowflake">
@@ -81,27 +73,27 @@ const Player: React.FC<any> = ({ list, index }) => {
                     </div>
                 </div>
             )}
-            <img src={"./src/img/" + list[indexPlayer].image} className="img-songs mb-3" />
+            <img src={list && list.records[indexPlayer].fields.images[0].url} className="img-songs mb-3" />
             <br />
-            <h4>{list[indexPlayer].title}</h4>
-            <small>{list[indexPlayer].artist}</small> <br />
-
-            {showBtnLyrics && (
-                <Button className='mt-3 lyrics-btn' onClick={() => showLyricsBool()}>Afficher les lyrics</Button>
-            )}
-
-            {showLyrics && (
-                <>
-                    <p className='new-line mt-3'>
-                        {list[indexPlayer].lyrics}
-                    </p>
-                    <Button className='mt-3 lyrics-btn' onClick={() => unShowLyricsBool()}>Cacher les lyrics</Button>
-                </>
-            )}
-
+            <h4>{list && list.records[indexPlayer].fields.title}</h4>
+            <small>{list && list.records[indexPlayer].fields.artist}</small> <br />
+            {list.records[indexPlayer].fields.lyrics &&
+                (showBtnLyrics ? (
+                    <Button className='mt-3 lyrics-btn' onClick={() => setShowBtnLyrics(false)}>Afficher les lyrics</Button>
+                )
+                    : (
+                        <>
+                            <p className='new-line mt-3'>
+                                {list && list.records[indexPlayer].fields.lyrics}
+                            </p>
+                            <Button className='mt-3 lyrics-btn' onClick={() => setShowBtnLyrics(true)}>Cacher les lyrics</Button>
+                        </>
+                    )
+                )
+            }
             <br />
             <ReactAudioPlayer className="player-audio p-2"
-                src={"./src/files/" + list[indexPlayer].filename}
+                src={list && list.records[indexPlayer].fields.songfilename[0].url}
                 autoPlay
                 controls
                 onPlay={() => setSnow(true)}
