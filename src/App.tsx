@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import { Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 import './App.css'
 import Player from './components/Player/Player'
 
@@ -46,27 +46,49 @@ const App: React.FC<any> = () => {
     setShow(true)
   }
 
+  const carrouselList = songs.records?.map((i: any) =>
+
+    <Carousel.Item key={i.id}>
+      <img
+        className="d-block w-100"
+        src={i.fields.image[0].url}
+        alt="slide"
+        onClick={() => handleClick(i)}
+      />
+      {/* <Carousel.Caption>
+        <h3>{i.fields.title}</h3>
+        <p>{i.fields.artist}</p>
+      </Carousel.Caption> */}
+    </Carousel.Item>
+  )
+
   return (
     <>
-      <Container fluid className='fullSide'>
+      <Container fluid className='fullSide leftSide'>
         <Row>
           {show ? (
-            <Col className="leftSide">
-              <h4 className="py-3">Titres</h4>
-              <ul>
-                {songs && songsTitleList}
-              </ul>
-            </Col>
+            <>
+              <Col xs={12} md={6} xl={6}>
+                <Carousel fade className="carlist">
+                  {songs && carrouselList}
+                </Carousel>
+              </Col>
+              <Col xs={12} md={6} xl={6} className='d-flex align-items-center py-4'>
+                <ul>
+                  <h4>Titres</h4>
+                  {songs && songsTitleList}
+                </ul>
+              </Col>
+            </>
           ) : (
             <Col lg={12} className="rightSide pb-3">
-              <h4 className="py-3">Lecteur
+              <h4 className="p-3">Lecteur
                 <Button className="float-end" onClick={() => handleClose()}>X</Button>
               </h4>
               <Player list={songs} index={selectedSong} />
             </Col>
           )
           }
-
         </Row>
       </Container>
     </>
