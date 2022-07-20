@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 import './App.css'
+import CarrouselComponent from './components/CarrouselComponent/CarrouselComponent'
 import Player from './components/Player/Player'
 
 const App: React.FC<any> = () => {
@@ -24,7 +25,7 @@ const App: React.FC<any> = () => {
   }, []
   )
 
-  console.log(songs && songs.records[0].fields)
+  // console.log(songs && songs.records[0].fields)
 
   const [show, setShow] = React.useState<boolean>(true)
 
@@ -40,27 +41,11 @@ const App: React.FC<any> = () => {
     const index = songs.records.findIndex((i: any) => i.id === param.id)
     setSelectedSong(index)
     setShow(false)
-    console.log(index)
+    // console.log(index)
   }
   const handleClose = () => {
     setShow(true)
   }
-
-  const carrouselList = songs.records?.map((i: any) =>
-
-    <Carousel.Item key={i.id}>
-      <img
-        className="d-block w-100"
-        src={i.fields.image[0].url}
-        alt="slide"
-        onClick={() => handleClick(i)}
-      />
-      {/* <Carousel.Caption>
-        <h3>{i.fields.title}</h3>
-        <p>{i.fields.artist}</p>
-      </Carousel.Caption> */}
-    </Carousel.Item>
-  )
 
   return (
     <>
@@ -68,12 +53,10 @@ const App: React.FC<any> = () => {
         <Row>
           {show ? (
             <>
-              <Col xs={12} md={6} xl={6}>
-                <Carousel fade className="carlist">
-                  {songs && carrouselList}
-                </Carousel>
+              <Col xs={12} md={6} xl={5}>
+                <CarrouselComponent i={songs.records} event={handleClick} />
               </Col>
-              <Col xs={12} md={6} xl={6} className='d-flex align-items-center py-4'>
+              <Col xs={12} md={6} xl={7} className='d-flex align-items-center py-4'>
                 <ul>
                   <h4>Titres</h4>
                   {songs && songsTitleList}

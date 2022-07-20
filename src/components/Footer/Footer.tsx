@@ -5,8 +5,8 @@ import { Container } from 'react-bootstrap'
 const Footer: React.FC<any> = () => {
 
     return (
-        <Container fluid className="Footer py-2">
-            by <strong>iTahitiLab</strong>
+        <Container fluid className="Footer py-3">
+            by <strong>iTAHITI LAB</strong>
         </Container>
     )
 }

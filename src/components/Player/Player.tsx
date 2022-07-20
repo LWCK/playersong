@@ -9,6 +9,8 @@ const Player: React.FC<any> = ({ list, index }) => {
     const [snow, setSnow] = React.useState<boolean>(false)
     const [showBtnLyrics, setShowBtnLyrics] = React.useState<boolean>(true)
 
+    
+
     const autoNext = () => {
         if (indexPlayer === list.records.length - 1) {
             setIndexPlayer(0)
@@ -79,7 +81,7 @@ const Player: React.FC<any> = ({ list, index }) => {
             <small>{list && list.records[indexPlayer].fields.artist}</small> <br />
             {list.records[indexPlayer].fields.lyrics &&
                 (showBtnLyrics ? (
-                    <Button className='mt-3 lyrics-btn' onClick={() => setShowBtnLyrics(false)}>Afficher les lyrics</Button>
+                    <Button className='mt-3 lyrics-btn' onClick={() => setShowBtnLyrics(false)} >Afficher les lyrics</Button>
                 )
                     : (
                         <>
